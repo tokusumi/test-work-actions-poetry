@@ -1,0 +1,29 @@
+name: Tests
+on: 
+  push:
+    branches: [ master ]
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@master
+      with:
+        python_version: ${{ matrix.python-version }}
+        poetry_version: 1.0
+    - name: Install
+      uses: tokusumi/actions-poetry@v1.5.0
+      with:
+        working_directory: ./
+        args: install
+
+    - name: Run pytest
+      uses: tokusumi/actions-poetry@v1.5.0
+      with:
+        working_directory: ./
+        args: run pytest
