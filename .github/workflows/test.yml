@@ -17,13 +17,13 @@ jobs:
         python_version: ${{ matrix.python-version }}
         poetry_version: 1.0
     - name: Install
-      uses: tokusumi/actions-poetry@v1.5.0
+      uses: tokusumi/actions-poetry@v1.0.0
       with:
         working_directory: ./
         args: install
 
     - name: Run pytest
-      uses: tokusumi/actions-poetry@v1.5.0
+      uses: tokusumi/actions-poetry@v1.0.0
       with:
         working_directory: ./
         args: run pytest
