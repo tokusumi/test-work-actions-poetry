@@ -15,15 +15,9 @@ jobs:
     - uses: actions/checkout@master
       with:
         python_version: ${{ matrix.python-version }}
-        poetry_version: 1.0
-    - name: Install
-      uses: tokusumi/actions-poetry@v1.0.0
-      with:
-        working_directory: ./
-        args: install
-
+        poetry_version: 1.0.0
     - name: Run pytest
-      uses: tokusumi/actions-poetry@v1.0.0
+      uses: tokusumi/actions-poetry@v1.1.0
       with:
         working_directory: ./
-        args: run pytest
+        command: run pytest
