@@ -20,5 +20,6 @@ jobs:
       with:
         poetry-version: 1.0.0
     - run: poetry --version
-    - run: pytest
+    - run: poetry install
+    - run: poetry run pytest
 
